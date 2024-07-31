@@ -8,3 +8,4 @@ PyPDF2
 python-dotenv
 requests
 streamlit
+sqlite3 >= 3.35.0
