@@ -1,5 +1,5 @@
 chainlit==1.1.305
-crewai==0.35.4
+crewai==0.35.0
 langchain==0.2.6
 langchain_google_genai==1.0.7
 langchain_groq==0.1.6
