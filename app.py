@@ -9,12 +9,10 @@ def generate_response(query):
     answer = response.run()
     return answer
 
-
 def get_chat_history():
     if "history" not in st.session_state:
         st.session_state.history = []
     return st.session_state.history
-
 
 def add_message_to_history(role, content):
     history = get_chat_history()
