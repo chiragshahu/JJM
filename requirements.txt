@@ -9,3 +9,4 @@ python-dotenv
 requests
 streamlit
 pysqlite3-binary
+streamlit-chat
