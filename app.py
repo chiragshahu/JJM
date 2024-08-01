@@ -3,6 +3,10 @@ from crew import JJMCrew
 import streamlit as st
 from streamlit_chat import message as st_message
 
+__import__('pysqlite3')
+import sys
+
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 def generate_response(query):
     response = JJMCrew(query)
@@ -28,7 +32,7 @@ def handle_user_input():
         st.session_state.input = ""
 
 st.set_page_config(page_title="Jal Jeevan Mission Chatbot", page_icon=":robot_face:")
-st.title("Chatbot with Chat History")
+st.title("Jal Jeevan Mission Chatbot")
 st.text_input("You:", key="input", on_change=handle_user_input)
 
 # Display chat history

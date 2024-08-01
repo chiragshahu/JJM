@@ -3,8 +3,10 @@ from textwrap import dedent
 from Agents import JJMAgents
 
 from langchain_groq import ChatGroq
+
 from dotenv import load_dotenv
 load_dotenv()
+
 llm = ChatGroq(model="llama3-70b-8192")
 
 class JJMTasks():
