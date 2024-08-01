@@ -8,4 +8,4 @@ PyPDF2
 python-dotenv
 requests
 streamlit
-# pysqlite3
+pysqlite3-binary
