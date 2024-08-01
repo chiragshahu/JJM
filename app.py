@@ -3,10 +3,10 @@ from crew import JJMCrew
 import streamlit as st
 from streamlit_chat import message as st_message
 
-__import__('pysqlite3')
-import sys
+# __import__('pysqlite3')
+# import sys
 
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 def generate_response(query):
     response = JJMCrew(query)
