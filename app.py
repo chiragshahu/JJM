@@ -3,15 +3,34 @@ from crew import JJMCrew
 import streamlit as st
 from streamlit_chat import message as st_message
 
+class CrewOutput:
+    def __init__(self, data):
+        self.data = data
+
+    def to_dict(self):
+        return {"data": self.data}
+
+# import json
+# class CustomJSONEncoder(json.JSONEncoder):
+#     def default(self, obj):
+#         if isinstance(obj, CrewOutput):
+#             return obj.to_dict()
+#         return super().default(obj)
+
 # __import__('pysqlite3')
 # import sys
 
 # sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 def generate_response(query):
+
     response = JJMCrew(query)
     answer = response.run()
-    return answer
+    
+    if isinstance(answer, CrewOutput):
+        return str(answer.output)  # or answer.output if it's already a string
+    else:
+        return str(answer)
 
 def get_chat_history():
     if "history" not in st.session_state:
@@ -35,7 +54,7 @@ st.set_page_config(page_title="Jal Jeevan Mission Chatbot", page_icon=":robot_fa
 st.title("Jal Jeevan Mission Chatbot")
 st.text_input("You:", key="input", on_change=handle_user_input)
 
-# Display chat history
+# Displaying chat history
 chat_history = get_chat_history()
 
 for chat in chat_history:
